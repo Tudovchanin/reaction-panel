@@ -164,6 +164,7 @@ function getStringReaction(arrReactionObj, valueToExclude) {
   transform: translateY(-50%);
   max-width: 393px;
   width: 100%;
+  padding-top: 60px;
   border-radius: 8px;
   background-image: linear-gradient(45deg, #211e1e, #423d33, #30301c, #101b10, #216e6e, #0b0b58, #a344a3);
   background-size: 200% 200%; /* Увеличенный размер для анимации */
@@ -172,6 +173,18 @@ function getStringReaction(arrReactionObj, valueToExclude) {
   overflow: hidden;
 }
 
+
+.wrapper-panel::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 4px;
+    background-color: #52525B;
+    border-radius: 4px;
+  }
 
 @keyframes gradientAnimation {
   0% {
@@ -196,6 +209,7 @@ function getStringReaction(arrReactionObj, valueToExclude) {
 @media (max-width:750px) {
 
   .wrapper-panel {
+    position: fixed;
     bottom: 0;
     transform: translateY(0);
     top: initial
@@ -205,5 +219,15 @@ function getStringReaction(arrReactionObj, valueToExclude) {
     position: fixed;
     transform: translateY(100%);
   }
+}
+
+
+@media (max-width:393px) {
+  .wrapper-panel {
+    max-width: 100%;
+    padding-top: 30px;
+    left: 0;
+  }
+
 }
 </style>

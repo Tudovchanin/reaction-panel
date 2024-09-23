@@ -124,7 +124,7 @@ const handleConfirm = () => {
     isDefault: isDefault.value,
   };
   console.log(payload);
-  
+
   // sendReactions(payload);
 
   handlePanelClose(updatedReactionStates.value);
@@ -169,25 +169,10 @@ const handleConfirm = () => {
 
 .reactions {
   width: 100%;
-  padding-top: 60px;
-  background-color: #09090b;
-
-  position: relative;
   overflow: hidden;
   background-color: transparent;
 
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 6px;
-    transform: (translateX(-50%));
-    width: 48px;
-    height: 4px;
-    background-color: #52525B;
-    border-radius: 4px;
-  }
 
   &__title {
     font-family: SF Pro Display, sans-serif;
@@ -198,7 +183,6 @@ const handleConfirm = () => {
     padding-left: 24px;
     padding-right: 24px;
     margin-bottom: 14px;
-    ;
   }
 
   &__paragraph {
@@ -335,5 +319,17 @@ const handleConfirm = () => {
     }
   }
 
+  @media (max-width:393px) {
+    &__title {
+      margin-bottom: 10px;
+    }
+    &__paragraph {
+      margin-bottom: 10px;
+    }
+    &__panel {
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+  }
 }
 </style>
