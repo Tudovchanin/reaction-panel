@@ -321,14 +321,26 @@ const handleConfirm = () => {
 
   @media (max-width:393px) {
     &__title {
+      font-size: 16px;
       margin-bottom: 10px;
     }
+
     &__paragraph {
+      font-size: 10px;
       margin-bottom: 10px;
     }
+
     &__panel {
       gap: 6px;
       margin-bottom: 10px;
+    }
+
+    &__checkbox {
+      margin-bottom: 10px;
+
+      label {
+        font-size: 12px;
+      }
     }
   }
 }
