@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="reactions__checkbox">
-      <input type="checkbox" id="default" v-model="isDefault">
+      <input type="checkbox" id="default" @change="handleCheckboxChange">
       <label for="default">Set as default settings</label>
     </div>
     <div class="reactions__btn">
@@ -47,9 +47,9 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['panel-closed']);
-const isDefault = ref(false);
-const reactionButtonRefs = ref([]);
 
+const reactionButtonRefs = ref([]);
+const isDefault = ref(false);
 const initialReactionStates = ref([]);
 const updatedReactionStates = ref([]);
 const initialActiveButtons = ref({});
@@ -67,6 +67,11 @@ const initializeReaction = () => {
 
 initializeReaction();
 
+
+
+const handleCheckboxChange = (event) => {
+  isDefault.value = event.target.checked; // Обновление состояния вручную, тк при v-model пропадали цвета кнопок и иконка выбора
+};
 
 function updateArrayObj(arrayObj, idToSearch,
   property, newValue) {
@@ -91,6 +96,7 @@ const resetReaction = () => {
     });
     updatedReactionStates.value = initialReactionStates.value.map(panel => ({ ...panel }));
   }
+  console.log(initialActiveButtons.value);
 };
 
 const updateReaction = () => {
@@ -106,6 +112,7 @@ const handlePanelClose = (states) => {
 const handleCancel = () => {
   resetReaction();
   handlePanelClose(initialReactionStates.value);
+  console.log(initialActiveButtons.value);
 };
 
 const handleConfirm = () => {
@@ -116,10 +123,13 @@ const handleConfirm = () => {
     reactions: updatedReactionStates.value,
     isDefault: isDefault.value,
   };
-
+  console.log(payload);
+  
   // sendReactions(payload);
 
-  handlePanelClose(updatedReactionStates.value)
+  handlePanelClose(updatedReactionStates.value);
+  console.log(initialActiveButtons.value);
+
 
 };
 
@@ -165,7 +175,7 @@ const handleConfirm = () => {
   position: relative;
   overflow: hidden;
   background-color: transparent;
-  
+
 
   &::before {
     content: '';
@@ -307,6 +317,7 @@ const handleConfirm = () => {
     button:first-child {
       background-color: transparent;
       color: #E4E4E7;
+
       &:hover,
       &:active {
         background-color: #101b10;
@@ -316,6 +327,7 @@ const handleConfirm = () => {
     button:last-child {
       background-color: #A3E635;
       color: #18181B;
+
       &:hover,
       &:active {
         background-color: #67cd67;
@@ -324,7 +336,4 @@ const handleConfirm = () => {
   }
 
 }
-
-
-
 </style>
