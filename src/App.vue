@@ -39,7 +39,7 @@ const colorsBtnPanels = ref([
 
   { offColor: '#fff', selectedColor: '#DC143C', unselectedColor: '#FFC0CB', filter: ['100%', '80%', '100%', '200%'] }, // Цвета для второй панели
 
-  { offColor: '#fff', selectedColor: '#FFD700', unselectedColor: '		#8B4513', filter: ['100%', '60%', '70%', '150%'] }, // Цвета для третьей панели
+  { offColor: '#fff', selectedColor: '#FFD700', unselectedColor: '#8B4513', filter: ['100%', '60%', '70%', '150%'] }, // Цвета для третьей панели
 
   { offColor: '#fff', selectedColor: '#1E90FF', unselectedColor: '#7B68EE', filter: ['100%', '80%', '100%', '130%'] }, // Цвета для четвертой панели
 ]);
